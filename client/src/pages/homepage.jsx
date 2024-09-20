@@ -35,19 +35,17 @@ function Homepage() {
   </div>
 </div>
         </div>
-        <div className="row" style={{ height: '40%' }}>
-          <div style={{ backgroundColor: "lightblue"}} className="col-12 col-md col-lg-9 d-flex align-items-center justify-content-center">
+     <div className="row" style={{ height: '30%' }}>
+          <div style={{ backgroundColor: "white"}} className="col-12 col-md col-lg-9 d-flex align-items-center justify-content-center">
             1 of 3
           </div>
-         
-          <div style={{ backgroundColor: "lightpink" }} className="col-12 col-md d-flex align-items-center justify-content-center">
-            3 of 3
+          <div style={{ backgroundColor: "#f6f4f8" }} className="col-12 col-md d-flex align-items-center justify-content-center">
+            <img style={{borderRadius:"25px",height:"180px","width":"180px"}} src="https://i.pinimg.com/236x/dc/c0/eb/dcc0eb2ba33b04355992705ffe889c23.jpg"></img>
           </div>
-          
         </div>
         
         {/* Üçüncü satır - Sol %50, Orta %25, Sağ %25 */}
-        <div className="row" style={{ height: "50%" }}>
+        <div className="row" style={{ height: "60%" }}>
           {/* Sol kısım - %50 genişlik (6 sütun) */}
           <div
             style={{ backgroundColor: "aqua" }}
@@ -66,11 +64,17 @@ function Homepage() {
 
           {/* Sağ kısım - %25 genişlik (3 sütun) */}
           <div
-            style={{ backgroundColor: "yellow" }}
-            className="col-12 col-md-3 d-flex align-items-center justify-content-center"
-          >
-            3 of 3
-          </div>
+  style={{ backgroundColor: "#f6f4f8" }}
+  className="col-12 col-md-3 d-flex flex-column align-items-center justify-content-center"
+>
+  <div>
+    <img style={{ height: "180px", borderRadius: "25px", width:"180px" }} src="https://img.freepik.com/premium-vector/hotel-icon-logo-vector-design-template_827767-3569.jpg" alt="Hotel Icon" />
+  </div>
+  <div>
+    <img style={{ marginTop:"40px",height: "180px", borderRadius: "25px" }} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSreAVDNDZYXOI9uLp5BpD1UPnxvttddtLj1A&s" alt="Another Image" />
+  </div>
+</div>
+
         </div>
       </div>
       
