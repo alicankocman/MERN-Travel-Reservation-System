@@ -1,0 +1,24 @@
+.left-rounded {
+    border-top-left-radius: 20px;  /* Sol üst köşe yuvarlama */
+    border-bottom-left-radius: 20px; /* Sol alt köşe yuvarlama */
+    border-top-right-radius: 0;     /* Sağ üst köşe köşeli */
+    border-bottom-right-radius: 0;  /* Sağ alt köşe köşeli */
+    margin-right: 2px; /* Sağda 2px boşluk */
+    border: none;
+    background-color: #4a1c97;
+  }
+  
+  .right-rounded {
+    border-top-left-radius: 0;      /* Sol üst köşe köşeli */
+    border-bottom-left-radius: 0;   /* Sol alt köşe köşeli */
+    border-top-right-radius: 20px;  /* Sağ üst köşe yuvarlama */
+    border-bottom-right-radius: 20px; /* Sağ alt köşe yuvarlama */
+    border: none;
+    background-color: #e6e0eb;
+    color: #4a1c97;
+  }
+  
+  .choosing-a-round-trip-container {
+    width: 100%; /* Tüm genişlikte olmasını sağlar */
+  }
+  
