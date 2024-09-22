@@ -7,6 +7,9 @@ import "../App.css";
 
 function Homepage() {
   const [flights, setFlights] = useState([]);
+  const [from, setFrom] = useState('');
+  const [to, setTo] = useState('');
+  const [filteredFlights, setFilteredFlights] = useState([]);
 
   useEffect(() => {
     const fetchFlights = async () => {
@@ -23,6 +26,7 @@ function Homepage() {
         const data = await response.json();
         console.log(data);
         setFlights(data.flights);
+        setFilteredFlights(data.flights); // Başlangıçta tüm uçuşları göster
       } catch (error) {
         console.error('API Hatası:', error);
       }
@@ -30,6 +34,20 @@ function Homepage() {
 
     fetchFlights();
   }, []);
+
+  const handleSearch = () => {
+    const results = flights.filter(flight => {
+      const flightStates = flight.publicFlightState?.flightStates || [];
+      const departureStatus = flightStates[0] || 'Bilinmiyor';
+      const arrivalStatus = flightStates[1] || 'Bilinmiyor';
+
+      const fromMatch = from ? departureStatus.includes(from) : true;
+      const toMatch = to ? arrivalStatus.includes(to) : true;
+      
+      return fromMatch && toMatch;
+    });
+    setFilteredFlights(results);
+  };
 
   return (
     <div className="container-fluid text-center" style={{ height: "100vh", width: "210vh", overflowX: "hidden" }}>
@@ -74,12 +92,24 @@ function Homepage() {
               </div>
             </div>
             <div className="additional-info d-flex justify-content-between">
-              <input type="text" placeholder="From" className="form-control form-control-sm me-2" />
-              <input type="text" placeholder="To" className="form-control form-control-sm me-2" />
+              <input
+                type="text"
+                placeholder="From"
+                className="form-control form-control-sm me-2"
+                value={from}
+                onChange={(e) => setFrom(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="To"
+                className="form-control form-control-sm me-2"
+                value={to}
+                onChange={(e) => setTo(e.target.value)}
+              />
               <input type="date" className="form-control form-control-sm me-2" />
               <input type="date" className="form-control form-control-sm" />
             </div>
-            <button className="btn btn-success btn-sm mt-3" style={{ width: "115px", backgroundColor: "#4a1c97", color: "white" }}>Show flights</button>
+            <button className="btn btn-success btn-sm mt-3" style={{ width: "115px", backgroundColor: "#4a1c97", color: "white" }} onClick={handleSearch}>Show flights</button>
           </div>
         </div>
 
@@ -93,20 +123,18 @@ function Homepage() {
       <div className="row" style={{ height: "60%" }}>
         <div style={{ backgroundColor: "aqua" }} className="col-12 col-md-6 d-flex flex-column align-items-center justify-content-center">
           <div className="flex-wrap justify-content-center">
-            {flights.slice(0, 2).map((flight, index) => {
+            {filteredFlights.slice(0, 2).map((flight, index) => {
               const flightStates = flight.publicFlightState?.flightStates || [];
               const departureStatus = flightStates[0] || 'Bilinmiyor';
               const arrivalStatus = flightStates[1] || 'Bilinmiyor';
 
               return (
-                <div key={index} className="card m-2" style={{ width: '700px',height:'175px', padding: '10px' }}>
+                <div key={index} className="card m-2" style={{ width: '700px', height: '175px', padding: '10px' }}>
                   <strong>{flight.flightName}</strong><br />
                   Kalkış: {departureStatus} - Varış: {arrivalStatus}<br />
                   Zaman: {flight.scheduleDateTime}<br />
                 </div>
-               
               );
-              
             })}
           </div>
         </div>
