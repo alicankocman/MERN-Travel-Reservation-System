@@ -164,9 +164,56 @@ function Homepage() {
             })}
           </div>
         </div>
-        <div style={{ backgroundColor: "lightcoral" }} className="col-12 col-md-3 d-flex align-items-center justify-content-center">
-          2 of 3
+        <div style={{ backgroundColor: "#f6f4f8" }} className="col-12 col-md-3 d-flex align-items-center justify-content-center">
+          {/* New sorting/filtering options */}
+          <div style={{ width: "100%"}}>
+            <h5 style={{marginRight:"280px"}}>Sort by:</h5>
+            <select className="form-select" aria-label="Sort by" style={{ marginBottom: '10px', width: '90%' }}>
+              <option value="lowestPrice">Lowest Price</option>
+              <option value="highestPrice">Highest Price</option>
+            </select>
+
+            <h5 style={{marginRight:"240px"}}>Arrival Time</h5>
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+              <input type="radio" id="morning" name="arrivalTime" value="5AM-12PM" />
+              <label htmlFor="morning" style={{ marginLeft: '10px' }}>5:00 AM - 11:59 AM</label>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+              <input type="radio" id="afternoon" name="arrivalTime" value="12PM-6PM" />
+              <label htmlFor="afternoon" style={{ marginLeft: '10px' }}>12:00 PM - 5:59 PM</label>
+            </div>
+
+            <h5 style={{marginRight:"300px"}}>Stops</h5>
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+              <input type="radio" id="nonstop" name="stops" value="nonstop" />
+              <label htmlFor="radio" style={{ marginLeft: '10px', paddingRight: '20px' }}>Nonstop</label>
+              <span style={{ marginLeft: 'auto' }}>$230</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+              <input type="radio" id="1stop" name="stops" value="1stop" />
+              <label htmlFor="1stop" style={{ marginLeft: '10px', paddingRight: '20px' }}>1 Stop</label>
+              <span style={{ marginLeft: 'auto' }}>$230</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+              <input type="radio" id="2stops" name="stops" value="2stops" />
+              <label htmlFor="2stops" style={{ marginLeft: '10px', paddingRight: '20px' }}>2+ Stops</label>
+              <span style={{ marginLeft: 'auto' }}>$230</span>
+            </div>
+
+            <h5 style={{marginRight:"200px"}}>Airlines Included</h5>
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+              <input type="radio" id="alitalia" name="airlines" value="alitalia" />
+              <label htmlFor="alitalia" style={{ marginLeft: '10px', paddingRight: '20px' }}>Alitalia</label>
+              <span style={{ marginLeft: 'auto' }}>$230</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+              <input type="radio" id="lufthansa" name="airlines" value="lufthansa" />
+              <label htmlFor="lufthansa" style={{ marginLeft: '10px', paddingRight: '20px' }}>Lufthansa</label>
+              <span style={{ marginLeft: 'auto' }}>$230</span>
+            </div>
+          </div>
         </div>
+
         <div style={{ backgroundColor: "#f6f4f8" }} className="col-12 col-md-3 d-flex flex-column align-items-center justify-content-center">
           <div>
             <img style={{ height: "180px", borderRadius: "25px", width: "180px" }} src="https://img.freepik.com/premium-vector/hotel-icon-logo-vector-design-template_827767-3569.jpg" alt="Hotel Icon" />
