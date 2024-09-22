@@ -10,6 +10,7 @@ function Homepage() {
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
   const [filteredFlights, setFilteredFlights] = useState([]);
+  const [isOneWay, setIsOneWay] = useState(false); // Yeni durum
 
   useEffect(() => {
     const fetchFlights = async () => {
@@ -43,10 +44,19 @@ function Homepage() {
 
       const fromMatch = from ? departureStatus.includes(from) : true;
       const toMatch = to ? arrivalStatus.includes(to) : true;
-      
+
       return fromMatch && toMatch;
     });
     setFilteredFlights(results);
+  };
+
+  const handleOneWayClick = () => {
+    setIsOneWay(true);
+    setTo(''); // "To" alanını sıfırla
+  };
+
+  const handleRoundTripClick = () => {
+    setIsOneWay(false);
   };
 
   return (
@@ -87,8 +97,8 @@ function Homepage() {
                 <p className="ms-2">Book Your Flight</p>
               </div>
               <div className="d-grid gap-2 d-md-block">
-                <button className="btn btn-primary left-rounded" type="button">Round trip</button>
-                <button className="btn btn-primary right-rounded" type="button">One way</button>
+                <button className="btn btn-primary left-rounded" type="button" onClick={handleRoundTripClick}>Round trip</button>
+                <button className="btn btn-primary right-rounded" type="button" onClick={handleOneWayClick}>One way</button>
               </div>
             </div>
             <div className="additional-info d-flex justify-content-between">
@@ -99,13 +109,15 @@ function Homepage() {
                 value={from}
                 onChange={(e) => setFrom(e.target.value)}
               />
-              <input
-                type="text"
-                placeholder="To"
-                className="form-control form-control-sm me-2"
-                value={to}
-                onChange={(e) => setTo(e.target.value)}
-              />
+              {!isOneWay && ( // "To" alanını gizle
+                <input
+                  type="text"
+                  placeholder="To"
+                  className="form-control form-control-sm me-2"
+                  value={to}
+                  onChange={(e) => setTo(e.target.value)}
+                />
+              )}
               <input type="date" className="form-control form-control-sm me-2" />
               <input type="date" className="form-control form-control-sm" />
             </div>
