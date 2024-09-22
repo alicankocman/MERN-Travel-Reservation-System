@@ -11,6 +11,8 @@ function Homepage() {
   const [to, setTo] = useState('');
   const [filteredFlights, setFilteredFlights] = useState([]);
   const [isOneWay, setIsOneWay] = useState(false); // Yeni durum
+  const [departureDate, setDepartureDate] = useState(''); // Kalkış tarihi
+  const [returnDate, setReturnDate] = useState(''); // Dönüş tarihi
 
   useEffect(() => {
     const fetchFlights = async () => {
@@ -41,18 +43,21 @@ function Homepage() {
       const flightStates = flight.publicFlightState?.flightStates || [];
       const departureStatus = flightStates[0] || 'Bilinmiyor';
       const arrivalStatus = flightStates[1] || 'Bilinmiyor';
+      const flightDate = flight.scheduleDateTime.split('T')[0]; // Uçuş tarihini al
 
       const fromMatch = from ? departureStatus.includes(from) : true;
       const toMatch = to ? arrivalStatus.includes(to) : true;
+      const dateMatch = departureDate ? flightDate === departureDate : true; // Kalkış tarihi kontrolü
+      const returnDateMatch = !isOneWay ? (returnDate ? flightDate === returnDate : true) : true; // Dönüş tarihi kontrolü
 
-      return fromMatch && toMatch;
+      return fromMatch && toMatch && dateMatch && returnDateMatch;
     });
     setFilteredFlights(results);
   };
 
   const handleOneWayClick = () => {
     setIsOneWay(true);
-    setTo(''); // "To" alanını sıfırla
+    // "To" alanını sıfırlamayacağız
   };
 
   const handleRoundTripClick = () => {
@@ -109,17 +114,25 @@ function Homepage() {
                 value={from}
                 onChange={(e) => setFrom(e.target.value)}
               />
-              {!isOneWay && ( // "To" alanını gizle
+              <input
+                type="text"
+                placeholder="To"
+                className="form-control form-control-sm me-2"
+                value={to}
+                onChange={(e) => setTo(e.target.value)}
+              />
+              <input
+                type="date"
+                className="form-control form-control-sm me-2"
+                onChange={(e) => setDepartureDate(e.target.value)}
+              />
+              {!isOneWay && (
                 <input
-                  type="text"
-                  placeholder="To"
-                  className="form-control form-control-sm me-2"
-                  value={to}
-                  onChange={(e) => setTo(e.target.value)}
+                  type="date"
+                  className="form-control form-control-sm"
+                  onChange={(e) => setReturnDate(e.target.value)}
                 />
               )}
-              <input type="date" className="form-control form-control-sm me-2" />
-              <input type="date" className="form-control form-control-sm" />
             </div>
             <button className="btn btn-success btn-sm mt-3" style={{ width: "115px", backgroundColor: "#4a1c97", color: "white" }} onClick={handleSearch}>Show flights</button>
           </div>
@@ -139,12 +152,13 @@ function Homepage() {
               const flightStates = flight.publicFlightState?.flightStates || [];
               const departureStatus = flightStates[0] || 'Bilinmiyor';
               const arrivalStatus = flightStates[1] || 'Bilinmiyor';
+              const flightDate = flight.scheduleDateTime.split('T')[0]; // Uçuş tarihini al
 
               return (
                 <div key={index} className="card m-2" style={{ width: '700px', height: '175px', padding: '10px' }}>
                   <strong>{flight.flightName}</strong><br />
                   Kalkış: {departureStatus} - Varış: {arrivalStatus}<br />
-                  Zaman: {flight.scheduleDateTime}<br />
+                  Zaman: {flightDate}<br /> {/* Uçuş tarihi burada gösteriliyor */}
                 </div>
               );
             })}
