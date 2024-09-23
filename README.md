@@ -2,7 +2,7 @@
 
 ## 🚀 Kullanılan Teknolojiler
 
-Bu projede MERN (MongoDB, Express.js, React.js, Node.js) teknolojileri kullanılarak Schipol Havalimanı'na ait API üzerinden uçuşlar listelenmektedir. Estetik ve kullanıcı dostu bir arayüz oluşturmak için aşağıdaki kütüphaneler kullanılmıştır:
+Bu projede MERN (React.js, Node.js) teknolojileri kullanılarak Schipol Havalimanı'na ait API üzerinden uçuşlar listelenmektedir. Estetik ve kullanıcı dostu bir arayüz oluşturmak için aşağıdaki kütüphaneler kullanılmıştır:
 
 - **Tailwind CSS**
 - **FontAwesome**
@@ -24,6 +24,6 @@ Uçuş detayları da görüntülenmektedir. Uçuşlara yönelik ek filtreleme se
 
 
 
-### Örnek Tarihlere Göre IATA Kodları
+### Örnek KALKIŞ VARIŞ KODLARI
 KALKIŞ : SCH - - - VARIŞ:EXP
 KALKIŞ : AIR - - - VARIŞ:EXP
