@@ -22,8 +22,24 @@ Uçuş detayları da görüntülenmektedir. Uçuşlara yönelik ek filtreleme se
 
 İlgili uçuşun **Book Flight** butonu, kullanıcıyı "Uçuşlarım" sayfasına yönlendirir. Yönlendirilen "Uçuşlarım" sayfasında, Context'den alınan veriler kullanıcıya ait tüm uçuşlar listelenir. Kullanıcıya ait listelenen uçuş kartında uçuşa dair bilgiler ve detaylar yer almaktadır.
 
+## 🚀 Uygulamayı Ayağa Kaldırma
+
+Bu projeyi yerel ortamınızda çalıştırmak için aşağıdaki adımları izleyin:
+
+### 1. Depoyu Klonlayın
+
+Terminal veya komut istemcisine şu komutu girerek projeyi klonlayın:
+
+git clone https://github.com/alicankocman/MERN-Travel-Reservation-System.git
+
+### 2. Gerekli Paketleri Yükleyin
+
+cd client 
+
+npm install vite --save-dev
+
+cd server
+
+npm install cors-anywhere
 
 
-### Örnek KALKIŞ VARIŞ KODLARI
-KALKIŞ : SCH - - - VARIŞ:EXP
-KALKIŞ : AIR - - - VARIŞ:EXP
