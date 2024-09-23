@@ -146,7 +146,7 @@ function Homepage() {
 
       {/* Üçüncü satır - Sol %50, Orta %25, Sağ %25 */}
       <div className="row" style={{ height: "60%" }}>
-        <div style={{ backgroundColor: "aqua" }} className="col-12 col-md-6 d-flex flex-column align-items-center justify-content-center">
+        <div style={{ backgroundColor: "#f6f4f8" }} className="col-12 col-md-6 d-flex flex-column align-items-center justify-content-center">
           <div className="flex-wrap justify-content-center">
             {filteredFlights.slice(0, 2).map((flight, index) => {
               const flightStates = flight.publicFlightState?.flightStates || [];
@@ -155,12 +155,31 @@ function Homepage() {
               const flightDate = flight.scheduleDateTime.split('T')[0]; // Uçuş tarihini al
 
               return (
-                <div key={index} className="card m-2" style={{ width: '700px', height: '175px', padding: '10px' }}>
-                  <strong>{flight.flightName}</strong><br />
-                  Kalkış: {departureStatus} - Varış: {arrivalStatus}<br />
-                  Zaman: {flightDate}<br /> {/* Uçuş tarihi burada gösteriliyor */}
+                <div key={index} style={{ marginBottom: '40px' }}>
+                  <div className="card m-2" style={{ width: '700px', height: '175px', padding: '10px' }}>
+                    <p style={{ marginRight: "0px" }}>Milano-Madrid</p>
+                    <strong>{flight.flightName}</strong>
+                    <img src="https://cdn-icons-png.flaticon.com/512/723/723963.png" alt="Flight Logo" style={{ width: "20px", height: "20px" }} />
+                    
+                    {/* Kalkış ve Varış */}
+                    <div style={{ display: "flex", alignItems: "center" }}>
+                      <span>Kalkış: {departureStatus}</span>
+                      <span style={{ margin: "0 250px" }}></span>
+                      <img src="https://cdn-icons-png.freepik.com/512/192/192150.png" alt="Flight Logo" style={{ width: "20px", height: "20px" }} />
+                      Varış:
+                      <span>{arrivalStatus}</span>
+                    </div>
+              
+                    {/* Uçuş tarihi */}
+                    <div>
+                      Zaman: {flightDate}
+                    </div>
+                    <input type="button" value="Book Flight" style={{ backgroundColor: "#4a1c97", color: "white", borderRadius: "5px", padding: "5px 15px", border: "none", width: "150px", marginLeft: "540px" }} />
+                    <input type="button" value="Check the details" style={{ color: "#4a1c97",backgroundColor:'#e6e0eb', borderRadius: "5px", padding: "5px 10px", border: "none", width: "150px",position:"relative",right:'10px',bottom:'2px'}} />
+                  </div>
                 </div>
               );
+              
             })}
           </div>
         </div>
@@ -218,7 +237,7 @@ function Homepage() {
           <div>
             <img style={{ height: "180px", borderRadius: "25px", width: "180px" }} src="https://img.freepik.com/premium-vector/hotel-icon-logo-vector-design-template_827767-3569.jpg" alt="Hotel Icon" />
           </div>
-          <div>
+          <div> 
             <img style={{ marginTop: "40px", height: "180px", borderRadius: "25px" }} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSreAVDNDZYXOI9uLp5BpD1UPnxvttddtLj1A&s" alt="Another Image" />
           </div>
         </div>
