@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import FlightLogo from "../assets/flightlogo.png";
 import DealsLogo from "../assets/deals.svg";
 import DiscoverLogo from "../assets/discover.svg";
 import AvatarLogo from "../assets/Avatar.png";
+import { FlightContext } from './FlightContext';
+import { useNavigate } from 'react-router-dom';
 import "../App.css";
 
 function Homepage() {
@@ -13,6 +15,13 @@ function Homepage() {
   const [isOneWay, setIsOneWay] = useState(false); // Yeni durum
   const [departureDate, setDepartureDate] = useState(''); // Kalkış tarihi
   const [returnDate, setReturnDate] = useState(''); // Dönüş tarihi
+  const { setSelectedFlight } = useContext(FlightContext);
+  const navigate = useNavigate();
+
+  const handleBookFlight = (flight) => {
+    setSelectedFlight(flight);
+    navigate('/flight-details'); // Uçuş detaylarına yönlendirme
+  };
 
   useEffect(() => {
     const fetchFlights = async () => {
@@ -174,7 +183,7 @@ function Homepage() {
                     <div>
                       Zaman: {flightDate}
                     </div>
-                    <input type="button" value="Book Flight" style={{ backgroundColor: "#4a1c97", color: "white", borderRadius: "5px", padding: "5px 15px", border: "none", width: "150px", marginLeft: "540px" }} />
+                    <input type="button" onClick={() => handleBookFlight(flight)} value="Book Flight" style={{ backgroundColor: "#4a1c97", color: "white", borderRadius: "5px", padding: "5px 15px", border: "none", width: "150px", marginLeft: "540px" }} />
                     <input type="button" value="Check the details" style={{ color: "#4a1c97",backgroundColor:'#e6e0eb', borderRadius: "5px", padding: "5px 10px", border: "none", width: "150px",position:"relative",right:'10px',bottom:'2px'}} />
                   </div>
                 </div>
