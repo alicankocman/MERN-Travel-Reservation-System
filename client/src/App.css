@@ -1,3 +1,9 @@
+body {
+  background-color: #f4f4f5;
+  margin: 0;
+  padding: 0;
+}
+
 .left-rounded {
     border-top-left-radius: 20px;  /* Sol üst köşe yuvarlama */
     border-bottom-left-radius: 20px; /* Sol alt köşe yuvarlama */
@@ -48,3 +54,43 @@ input[type="radio"]:hover {
 h5 {
   margin-bottom: 7px; /* İstenilen mesafe */
 }
+
+.flight-details-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  width: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 1000;
+}
+
+.main-content {
+  padding-top: 100px; /* Header ile içerik arasında boşluk bırakmak için */
+}
+
+.card {
+  background-color: #f9f9f9;
+}
+
+.react-rater-star  {
+  font-size: 40px; /* Yıldız boyutunu ayarlayın */
+}
+
+.rater .star {
+  color: gold; /* Dolu yıldız rengi */
+  ;
+}
+
+.rater .star.empty {
+  color: lightgray; /* Boş yıldız rengi */
+}
+
+.btn-marg{
+  margin-left: 15px;
+}
+
+
