@@ -42,4 +42,13 @@ cd server
 
 npm install cors-anywhere
 
+## 📸 Proje Görüntüsü
+
+Aşağıda, uygulamanın ana sayfasının bir ekran görüntüsü yer almaktadır:
+
+![Ekran görüntüsü 2024-09-24 015747](https://github.com/user-attachments/assets/e34d984d-d005-4757-b9ca-33f77f86dd82)
+![Ekran görüntüsü 2024-09-24 015731](https://github.com/user-attachments/assets/0ff3dbd5-793c-4bff-bcfd-4da57fd10bc3)
+![Ekran görüntüsü 2024-09-24 015759](https://github.com/user-attachments/assets/ac30f58d-3bf6-4de4-a4e7-2f2a320ea4ea)
+
+
 
