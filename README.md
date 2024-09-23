@@ -22,10 +22,8 @@ Uçuş detayları da görüntülenmektedir. Uçuşlara yönelik ek filtreleme se
 
 İlgili uçuşun **Book Flight** butonu, kullanıcıyı "Uçuşlarım" sayfasına yönlendirir. Yönlendirilen "Uçuşlarım" sayfasında, Context'den alınan veriler kullanıcıya ait tüm uçuşlar listelenir. Kullanıcıya ait listelenen uçuş kartında uçuşa dair bilgiler ve detaylar yer almaktadır.
 
-## 🚀 Uygulamayı Deneme
 
-Uygulamanın estetik görünümünü sağlamak amacıyla ana sayfaya `overflow-hidden` özelliği eklenmiştir. Bu alanı küçük ekran görünümü için kaldırmak isterseniz, `pages/HomePage.jsx` içerisinde yorum satırıyla çevrelenmiş kod alanını kaldırmanız gerekmektedir.
 
 ### Örnek Tarihlere Göre IATA Kodları
-KALKIŞ : SCH     VARIŞ:EXP
-KALKIŞ : AIR     VARIŞ:EXP
+KALKIŞ : SCH - - - VARIŞ:EXP
+KALKIŞ : AIR - - - VARIŞ:EXP
